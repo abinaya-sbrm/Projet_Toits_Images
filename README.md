@@ -15,7 +15,12 @@ Notre contribution n'est pas un nouveau modèle. C'est la **preuve chiffrée** d
 
 ## 2. Niveau choisi
 
-**À COMPLÉTER** : détection (boîtes : localiser et compter) ou segmentation (masques : contours précis et surfaces).
+**Segmentation d'instances.** Les annotations fournies sont des polygones
+(format YOLO-seg), ce qui permet d'obtenir le contour de chaque toit, de
+calculer les surfaces et de produire la carte demandée. Modèle d'ablation :
+YOLO-seg (Ultralytics).
+
+
 
 Remarque : les livrables 4 (erreur de surface) et 5 (carte des toits) demandent des masques. La segmentation (YOLO-seg) est donc la cible naturelle.
 
@@ -36,6 +41,17 @@ Règles appliquées :
 - statistiques de normalisation calculées **sur l'entraînement uniquement** ;
 - aucune image dans le dépôt (`data/` est vide, rempli par `scripts/download.py`).
 
+
+- Nombre d'images : 364 (train 291, val 36, test 37), chacune avec son fichier d'annotation.
+- Classe unique : `0: roof`.
+- Format des annotations : polygones YOLO-seg (coordonnées normalisées).
+- Nommage des fichiers : `nombre1_nombre2.jpg`, vraisemblablement des
+  coordonnées de grille (colonne_ligne). Signification à confirmer auprès de l'enseignante.
+- Emprise : à 20 cm/pixel, une image couvre environ 205 m × 205 m, soit environ 15 km² au total.
+- Licence et provenance : à confirmer auprès de l'enseignante.
+- Points de vigilance : nombreux toits coupés en bord d'image ; possibles
+  toits mitoyens fusionnés en un seul polygone (à vérifier visuellement).
+
 ## 4. Zones source et cible
 
 | Rôle | Zone | Nb d'images |
@@ -43,12 +59,14 @@ Règles appliquées :
 | Source (entraînement) | **À COMPLÉTER** | |
 | Validation | **À COMPLÉTER** | |
 | Cible (test hors domaine) | **À COMPLÉTER** | |
-
+Le jeu ne contient pas de nom de ville. Les zones seront définies à partir des
+coordonnées de grille des fichiers ; il reste à vérifier que le découpage
+train/val/test fourni sépare bien des zones géographiques distinctes.
 ## 5. Rôles dans le binôme
 
 | | Membre A « Données et prétraitement » | Membre B « Modèles et évaluation » |
 |---|---|---|
-| Nom | **À COMPLÉTER** | **À COMPLÉTER** |
+| Nom | **Dufour Maxence** | **Abinaya Subraniam** |
 | Données | Téléchargement, découpage par zone, conversion des annotations | Contrôle visuel, statistiques sur la taille des bâtiments |
 | Prétraitement | Pipeline YAML, figures avant/après, tuilage et reconstitution | Augmentation de données |
 | Modèles | SAM 3 | YOLO (ablation), Mask R-CNN, DETR |
