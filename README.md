@@ -25,7 +25,7 @@ Remarque : les livrables 4 (erreur de surface) et 5 (carte des toits) demandent 
 |---|---|---|
 | Dossier `dataset` fourni par l'enseignante | Orthophotos RGB à 20 cm/pixel, 1024 × 1024 px | Par l'enseignante |
 
-- Nombre d'images : **À COMPLÉTER**
+- Nombre d'images : 364 tuiles RGB de 1024×1024 px (JPEG), réparties en train (291), val (36) et test (37)
 - Zones/villes présentes : **À COMPLÉTER**
 - Format des annotations (masques sémantiques ? polygones ?) : **À COMPLÉTER**
 - Licence : **À COMPLÉTER**
