@@ -1,0 +1,24 @@
+# Configuration de référence : aucun prétraitement (simple redimensionnement).
+# Chaque expérience d'ablation copie ce fichier et active UNE opération.
+seed: 0
+epochs: 30
+
+tiling:
+  enabled: true
+  tile: 512
+  overlap: 128        # explorer 64 à 128
+  merge: nms          # nms | wbf
+
+preprocessing:        # appliqué à l'entraînement ET à l'inférence
+  color_norm:      {enabled: false, scope: global}   # global | image
+  reinhard:        {enabled: false, reference: null}
+  clahe:           {enabled: false, clip_limit: 2.0, grid: 8}
+  gamma:           {enabled: false, value: 1.0}
+  resize:          {enabled: false, m_per_px: 0.2}   # 0.3 | 0.5 | 1.0
+  hist_matching:   {enabled: false, reference: null}
+
+augmentation:         # entraînement SEULEMENT
+  enabled: false
+  rot90: true
+  flips: true
+  brightness_contrast: 0.2

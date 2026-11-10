@@ -1,0 +1,27 @@
+# Données et poids : jamais dans le dépôt
+data/*
+!data/.gitkeep
+*.tif
+*.tiff
+*.jpg
+*.jpeg
+*.png
+!docs/**/*.png
+*.pt
+*.pth
+*.onnx
+*.ckpt
+runs/
+weights/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Résultats lourds (les CSV restent versionnés)
+results/figures/*
+!results/figures/.gitkeep

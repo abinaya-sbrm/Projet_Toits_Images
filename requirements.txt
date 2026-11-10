@@ -1,0 +1,7 @@
+# Versions vérifiées le 10/11/2026 (Python 3.13). Compléter avec `pip freeze`
+# quand ultralytics, torch, albumentations, scikit-image seront installés.
+numpy==2.5.3
+opencv-python==5.0.0.93
+matplotlib==3.11.2
+PyYAML==6.0.3
+pytest==9.1.1
